@@ -1,7 +1,7 @@
 # HospiTec
 Tarea 1 - Curso de Bases de Datos 
-- Kendall Martínez
-- Gonzalo Acuña
-- Daniel Ureña
-- Daniel Montoya
-- Max Garro
+- Kendall Martínez Carvajal
+- Gonzalo Acuña Madrigal
+- Daniel Ureña López
+- Daniel Montoya Rivera
+- Max Garro Mora
