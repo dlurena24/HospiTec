@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button and Text Field Example</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #36cbe6;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			color: #333333;
+			font-size: 24px;
+			margin: 20px 0;
+			text-align: center;
+		}
+
+		button {
+			background-color: #910000;
+			border: none;
+			color: #000000;
+			cursor: pointer;
+			font-size: 16px;
+			margin: 10px;
+			padding: 12px 24px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #e25247;
+		}
+
+		input[type="text"], input[type="password"] {
+			border: none;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			margin: 10px;
+			padding: 12px;
+			width: 100%;
+			transition: box-shadow 0.3s ease;
+		}
+
+		input[type="text"]:focus, input[type="password"]:focus {
+			box-shadow: 0px 0px 5px #4CAF50;
+			outline: none;
+		}
+
+		#buttons, #fields {
+			animation: fadein 0.5s ease;
+			margin: 0 auto;
+			max-width: 600px;
+			padding: 20px;
+		}
+
+		@keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+		.hide {
+			display: none;
+		}
+
+		@media screen and (max-width: 600px) {
+			button {
+				font-size: 14px;
+				padding: 10px;
+			}
+
+			input[type="text"], input[type="password"] {
+				font-size: 14px;
+				padding: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<head>
+		<title>Button and Text Field Example</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div id="buttons">
+			<button onclick="showFields('Funcionario')">Funcionario</button>
+			<button onclick="showFields('Paciente')">Paciente</button>
+		</div>
+		<div id="fields" style="display:none;">
+			<label for="usuario">Usuario:</label>
+			<input type="text" id="usuario"><br><br>
+			<label for="contrasena">Contraseña:</label>
+			<input type="password" id="contrasena"><br><br>
+			<button onclick="hideFields()">Regresar</button>
+		</div>
+		<script>
+			function showFields(buttonName) {
+				if (buttonName === 'Funcionario' || buttonName === 'Paciente') {
+					document.getElementById('buttons').style.display = 'none';
+					document.getElementById('fields').style.display = 'block';
+				}
+			}
+	
+			function hideFields() {
+				document.getElementById('buttons').style.display = 'block';
+				document.getElementById('fields').style.display = 'none';
+			}
+	</script>
+</body>
+</html>
