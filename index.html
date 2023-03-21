@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Button and Text Field Example</title>
+	<title>Hospital TECnológico</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
+		/*El cuerpo de la página*/
 		body {
-			background-color: #36cbe6;
+			background-color: #8fcab4;
 			font-family: Arial, sans-serif;
 			font-size: 16px;
 			line-height: 1.5;
 			margin: 0;
 			padding: 0;
 		}
-
+		/*El título*/
 		h1 {
-			color: #333333;
-			font-size: 24px;
-			margin: 20px 0;
+			color: #ffffff;
+			font-size: 30px;
+			margin: 25px 0;
 			text-align: center;
 		}
-
+		/*Botones*/
 		button {
-			background-color: #910000;
+			background-color: #eceba0;
 			border: none;
 			color: #000000;
 			cursor: pointer;
@@ -34,8 +35,9 @@
 			transition: background-color 0.3s ease;
 		}
 
+		/*Color al poner el mouse encima de los botones*/
 		button:hover {
-			background-color: #e25247;
+			background-color: #ffffff;
 		}
 
 		input[type="text"], input[type="password"] {
@@ -54,7 +56,7 @@
 			outline: none;
 		}
 
-		#buttons, #fields {
+		#bienvenida, #login {
 			animation: fadein 0.5s ease;
 			margin: 0 auto;
 			max-width: 600px;
@@ -85,33 +87,44 @@
 </head>
 <body>
 	<head>
-		<title>Button and Text Field Example</title>
+		<title>Hospital TECnológico</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<div id="buttons">
-			<button onclick="showFields('Funcionario')">Funcionario</button>
-			<button onclick="showFields('Paciente')">Paciente</button>
+		<h1>BIENVENIDOS</h1>
+
+		<div id="bienvenida">
+			<button onclick="showLogin('Funcionario')">Funcionario</button>
+			<button onclick="showLogin('Paciente')">Paciente</button>
+			
 		</div>
-		<div id="fields" style="display:none;">
+		<div id="login" style="display:none;">
 			<label for="usuario">Usuario:</label>
 			<input type="text" id="usuario"><br><br>
+
 			<label for="contrasena">Contraseña:</label>
 			<input type="password" id="contrasena"><br><br>
-			<button onclick="hideFields()">Regresar</button>
+
+			<button onclick="Back()">Regresar</button>
 		</div>
+
+		
 		<script>
-			function showFields(buttonName) {
+			/*Funciones de la página web*/
+
+			/*Función de los botones de funcionario y paciente*/
+			function showLogin(buttonName) {
 				if (buttonName === 'Funcionario' || buttonName === 'Paciente') {
-					document.getElementById('buttons').style.display = 'none';
-					document.getElementById('fields').style.display = 'block';
+					document.getElementById('bienvenida').style.display = 'none';
+					document.getElementById('login').style.display = 'block';
 				}
 			}
 	
-			function hideFields() {
-				document.getElementById('buttons').style.display = 'block';
-				document.getElementById('fields').style.display = 'none';
+			/*Función para devolverse*/
+			function Back() {
+				document.getElementById('bienvenida').style.display = 'block';
+				document.getElementById('login').style.display = 'none';
 			}
 	</script>
 </body>
