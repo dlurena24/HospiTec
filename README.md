@@ -1,4 +1,4 @@
-# HospiTec
+# Hospital TECnológico
 Tarea 1 - Curso de Bases de Datos 
 - Kendall Martínez Carvajal
 - Gonzalo Acuña Madrigal
