@@ -64,13 +64,58 @@
             </div>
         </form>
         <!--Modificar la ubicacion de devolucion del onclick-->
-        <button type="button" class="advance-btn" onclick="Password()" id="Create_Btn"> AGREGAR </button>
+        <button type="button" class="advance-btn" onclick="Password();PostMethod();" id="Create_Btn"> AGREGAR </button>
         <!--Modificar la ubicacion de devolucion del onclick-->
         <button type="button" class="advance-btn" onclick="document.location='doctorHome.html'"> VOLVER</button>
     </div>
 
     
     <script>
+
+        function PostMethod(){
+            const nombre = document.getElementById("NomPaciente");
+            const pApellido = document.getElementById("PrimerApPac");
+            const sApellido = document.getElementById("SegApPac");
+            const cedula = document.getElementById("CedPaciente");
+            const fechaNacimiento = document.getElementById("Birthdate");
+            const contrasena = document.getElementById("password1");
+            const telefono = document.getElementById("NumTel");
+            const direccion = document.getElementById("Direccion");
+            const patologia = document.getElementById("Patology");
+            const tratamiento = document.getElementById("Treatment");
+
+            const url = "https://localhost:7187/Paciente/agregar_paciente";
+
+            const datos = {
+                Nombre: nombre,
+                Apellido1: pApellido,
+                Apellido2: sApellido,
+                Cedul: cedula,
+                Fecha_Nacimiento: fechaNacimiento,
+                Contrasena: contrasena,
+                Telefonos: telefono,
+                Direcciones: direccion,
+                Patologia: patologia,
+                Tratamientos: tratamiento
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(response => response.json())
+            .then(datos =>{
+                console.log(datos);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        }
+
         function myFunction(){
             var x= document.getElementById("password1");
             var y= document.getElementById("hide1");
