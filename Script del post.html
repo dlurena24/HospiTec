@@ -1,0 +1,26 @@
+<script>
+fetch('https://localhost:7187/Paciente/agregar_paciente', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Ocurrió un error al enviar los datos.');
+  }
+  return response.json();
+})
+.then(data => {
+  console.log('Los datos fueron enviados exitosamente.');
+})
+.catch(error => {
+  console.error(error);
+});
+const data = {
+  nombre: "Juan",
+  correo: "juan@example.com",
+  mensaje: "Hola, quiero más información sobre sus productos."
+};
+</script>
