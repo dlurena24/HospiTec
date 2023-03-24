@@ -19,7 +19,7 @@ namespace API_Tareadef.Controllers
             string jsonString = JsonConvert.SerializeObject(nuevo_paciente);
             Console.WriteLine(jsonString);
             string fileName = "PacienteJson.json";
-            string path = "C:\\Users\\maxga\\OneDrive\\Documentos\\Cursos CE\\Bases de Datos S1.2023\\API_Tareadef\\Recursos\\PacienteJson.json";
+            string path = @".\\Recursos\\PacienteJson.json";
             using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString()); tw.Close(); }
 
             return Ok(jSON);
