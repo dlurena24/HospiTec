@@ -22,97 +22,38 @@
             <div class="input-box">
                 <input type="text" placeholder="Primer apellido del paciente" id="PrimerApPac">
             </div>
-
-            <div class="input-box">
-                <input type="text" placeholder="Segundo apellido del paciente" id="SegApPac">
-            </div>
-
-            <div class="input-box">
-                <input type="number" placeholder="Cédula del paciente" id="CedPaciente">
-            </div>
-            
-            <div class="input-box">
-                <input type="number" placeholder="Número de contacto" id="NumTel">
-            </div>
-
-            <div class="input-box">
-                <input type="text" placeholder="Dirección" id="Direccion">
-            </div>
-
-            <div class="input-box">
-                <input type="text" placeholder="Fecha de nacimiento" id="Birthdate">
-            </div>
-
-            <div class="input-box">
-                <input type="text" placeholder="Patologías" id="Patology">
-            </div>
-
-            <div class="input-box">
-                <input type="text" placeholder="Tratamiento" id="Treatment">
-            </div>
-            <div class="input-box">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" placeholder="Ingrese su contraseña (al menos 8 caracteres)" id="password1">
-                <span class="eye" onclick="myFunction()">
-                    <i id="hide1" class="fa-solid fa-eye"></i>
-                    <i id="hide2" class="fa-solid fa-eye-slash"></i>
-                </span>
-            </div>
-            <div class="input-box">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" placeholder="Confirmar Contraseña" id="password2">
-            </div>
         </form>
         <!--Modificar la ubicacion de devolucion del onclick-->
-        <button type="button" class="advance-btn" onclick="Password();PostMethod();" id="Create_Btn"> AGREGAR </button>
+        <button type="button" class="advance-btn" onclick="PostMethod();" id="Create_Btn"> AGREGAR </button>
         <!--Modificar la ubicacion de devolucion del onclick-->
         <button type="button" class="advance-btn" onclick="document.location='doctorHome.html'"> VOLVER</button>
+        
     </div>
 
     
     <script>
 
         function PostMethod(){
-            const nombre = document.getElementById("NomPaciente");
-            const pApellido = document.getElementById("PrimerApPac");
-            const sApellido = document.getElementById("SegApPac");
-            const cedula = document.getElementById("CedPaciente");
-            const fechaNacimiento = document.getElementById("Birthdate");
-            const contrasena = document.getElementById("password1");
-            const telefono = document.getElementById("NumTel");
-            const direccion = document.getElementById("Direccion");
-            const patologia = document.getElementById("Patology");
-            const tratamiento = document.getElementById("Treatment");
-
+            const nombre = document.getElementById("NomPaciente").value;
+            const pApellido = document.getElementById("PrimerApPac").value;
+            
             const url = "https://localhost:7187/Paciente/agregar_paciente";
+            const respuestaApi = document.getElementById("respuesta-api");
 
-            const datos = {
-                Nombre: nombre,
-                Apellido1: pApellido,
-                Apellido2: sApellido,
-                Cedul: cedula,
-                Fecha_Nacimiento: fechaNacimiento,
-                Contrasena: contrasena,
-                Telefonos: telefono,
-                Direcciones: direccion,
-                Patologia: patologia,
-                Tratamientos: tratamiento
-            };
+            console.log({ Nombre: nombre , Apellido1: pApellido});
 
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(datos)
+                body: JSON.stringify({ Nombre:nombre , Apellido:pApellido})
             })
             .then(response => response.json())
-            .then(datos =>{
-                console.log(datos);
-            })
-            .catch(error => {
-                console.error('Error:', error);
+            .then(data =>{
+                respuestaApi.textContent=data.mensaje;
             });
+            console.log(2)
 
         }
 
@@ -145,7 +86,7 @@
                 if(pass_1.value.length < 8){
                     btnCreate.textContent = "Error, la contraseña debe ser mayor a 8 caracteres";
                 }else{
-                    document.location='addHystory.html'
+                    //document.location='addHystory.html'
                     
                 }
             }else{
@@ -158,6 +99,7 @@
 
         }
     </script>
+    <p id="respuesta-api"></p>
 </body>
 
 </html>

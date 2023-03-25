@@ -13,25 +13,43 @@ namespace API_Tareadef.Controllers
     [Route("[controller]")]
     public class PacienteController : ControllerBase
     {
-        [HttpPost("agregar_paciente")]
+        [HttpPost]
         public IActionResult Post([FromBody] Paciente nuevo_paciente)
         {
-            JSON_object jSON = new JSON_object("okay", nuevo_paciente);
-            string jsonString = JsonConvert.SerializeObject(nuevo_paciente);//JSON a API deserealizar, API a JSON serealizar
-            Console.WriteLine(jsonString);
-            string fileName = "PacienteJson.json";
+            if(nuevo_paciente!=null && !string.IsNullOrEmpty(nuevo_paciente.Nombre))
+            {
+                var response = new ExResponse
+                {
+                    Mensaje = $"Funca, {nuevo_paciente.Nombre}"
+                };
+                string jsonString = JsonConvert.SerializeObject(nuevo_paciente);//JSON a API deserealizar, API a JSON serealizar
+                string path = @".\\Recursos\\PacienteJson.json";
+                using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString() + "\r\n"); tw.Close(); }
+                using (var testw = new StreamReader(path, true))
+                {
+                    Console.WriteLine(testw.ReadLine());
+                    Console.ReadLine();
+                    testw.Close();
+                }
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest();
+            }
+            //JSON_object jSON = new JSON_object("okay", nuevo_paciente);
+            /*string jsonString = JsonConvert.SerializeObject(nuevo_paciente);//JSON a API deserealizar, API a JSON serealizar
             string path = @".\\Recursos\\PacienteJson.json";
-            using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString() + "\r\n"); tw.Close(); }
+            using (var tw = new StreamWriter(path, true)) { tw.WriteLine(nuevo_paciente.ToString() + "\r\n"); tw.Close(); }
             using (var testw = new StreamReader(path, true)) 
             { 
-                //testw.ReadLine();
                 Console.WriteLine(testw.ReadLine());
                 Console.ReadLine();
                 testw.Close(); 
             }
-            return Ok(jSON);
+            return Ok(nuevo_paciente);*/
         }
-        [HttpDelete("eliminar_paciente")]
+        /*[HttpDelete("eliminar_paciente")]
         public async Task<ActionResult<JSON_object>> eliminar_Paciente(Paciente eliminado_paciente)
         {
             JSON_object jSON = new JSON_object("okay", eliminado_paciente);
@@ -67,7 +85,11 @@ namespace API_Tareadef.Controllers
         {
             JSON_object jSON = new JSON_object("okay", paciente_mostrado); 
             return Ok(jSON);
-        }
+        }*/
 
+    }
+    public class ExResponse
+    {
+        public string Mensaje { get; set; }
     }
 }
