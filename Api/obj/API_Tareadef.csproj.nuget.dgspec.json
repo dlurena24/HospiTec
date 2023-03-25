@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\Desktop\\Tarea 1\\HospiTec\\Api\\API_Tareadef.csproj": {}
+    "C:\\Users\\Chalo\\Documents\\GitHub\\HospiTec\\Api\\API_Tareadef.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\Desktop\\Tarea 1\\HospiTec\\Api\\API_Tareadef.csproj": {
+    "C:\\Users\\Chalo\\Documents\\GitHub\\HospiTec\\Api\\API_Tareadef.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\Desktop\\Tarea 1\\HospiTec\\Api\\API_Tareadef.csproj",
+        "projectUniqueName": "C:\\Users\\Chalo\\Documents\\GitHub\\HospiTec\\Api\\API_Tareadef.csproj",
         "projectName": "API_Tareadef",
-        "projectPath": "C:\\Users\\Daniel\\Desktop\\Tarea 1\\HospiTec\\Api\\API_Tareadef.csproj",
-        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\Desktop\\Tarea 1\\HospiTec\\Api\\obj\\",
+        "projectPath": "C:\\Users\\Chalo\\Documents\\GitHub\\HospiTec\\Api\\API_Tareadef.csproj",
+        "packagesPath": "C:\\Users\\Chalo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Chalo\\Documents\\GitHub\\HospiTec\\Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Chalo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,24 +60,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.15, 6.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.15, 6.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.15, 6.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.15, 6.0.15]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -90,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

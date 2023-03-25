@@ -23,6 +23,39 @@
                 <input type="text" placeholder="Primer apellido del paciente" id="PrimerApPac" name = "PrimerApPac">
             </div>
 
+            <div class="input-box">
+                <input type="text" placeholder="Segundo apellido del paciente" id="SegundoApPac" name = "SegundoApPac">
+            </div>
+
+            <div class="input-box">
+                <input type="int" placeholder="Cédula" id="Cedula" name = "Cedula">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Fecha de nacimiento" id="FechaNac" name = "FechaNac">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Contraseña" id="Contrasena" name = "Contrasena">
+            </div>
+
+            <div class="input-box">
+                <input type="int" placeholder="Teléfono" id="Telefono" name = "Telefono">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Dirección" id="Direccion" name = "Direccion">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Patología" id="Patologia" name = "Patologia">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Tratamiento" id="Tratamiento" name = "Tratamiento">
+            </div>
+
+
             <!--Modificar la ubicacion de devolucion del onclick-->
             <button type="submit" class="advance-btn" id="Create_Btn"> AGREGAR </button>
             <!--Modificar la ubicacion de devolucion del onclick-->
@@ -33,52 +66,33 @@
 
     
     <script>
-        //const formulario = document.getElementById("formulario-1");
+        const formulario = document.getElementById("formulario-1");
+        const respuestaApi = document.getElementById("respuesta-api");
 
-            /*
-            const nombre = document.getElementById("NomPaciente").value;
-            const pApellido = document.getElementById("PrimerApPac").value;
-            
-            const url = "https://localhost:7187";
-            const respuestaApi = document.getElementById("respuesta-api");
-
-            console.log({ Nombre: nombre , Apellido1: pApellido});
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ Nombre:nombre , Apellido:pApellido})
-            })
-            .then(response => response.json())
-            .then(data =>{
-                respuestaApi.textContent=data.mensaje;
-            });
-            console.log(2)*/
-
-            //const respuestaApi = document.getElementById("respuesta-api");
-            
-
-            const formulario = document.getElementById("formulario-1");
-            const respuestaApi = document.getElementById("respuesta-api");
-
-            formulario.addEventListener("submit", event => {
-            event.preventDefault();
-            const nombre = document.getElementById("NomPaciente").value;
-            const apellido = document.getElementById("PrimerApPac").value;
-            fetch("https://localhost:7187/Paciente", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ Nombre: nombre , Apellido: apellido})
-            })
-            .then(response => response.json())
-            .then(data => {
-                respuestaApi.textContent = data.mensaje;
-            });
-            return;
+        formulario.addEventListener("submit", event => {
+        event.preventDefault();
+        const nombre = document.getElementById("NomPaciente").value;
+        const apellido1 = document.getElementById("PrimerApPac").value;
+        const apellido2 = document.getElementById("SegundoApPac").value;
+        const cedula = document.getElementById("Cedula").value;
+        const fecha_nac = document.getElementById("FechaNac").value;
+        const contrasena = document.getElementById("Contrasena").value;
+        const telefono = document.getElementById("Telefono").value;
+        const direccion = document.getElementById("Direccion").value;
+        const patologia = document.getElementById("Patologia").value;
+        const tratamiento = document.getElementById("Tratamiento").value;
+        fetch("https://localhost:7187/Paciente", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ Nombre: nombre , Apellido1: apellido1, Apellido2: apellido2, Cedula: cedula, Fecha_Nacimiento: fecha_nac, Contrasena: contrasena, Telefono: telefono, Direccion: direccion, Patologia: patologia, Tratamiento: tratamiento})
+        })
+        .then(response => response.json())
+        .then(data => {
+            respuestaApi.textContent = data.mensaje;
+        });
+        return;
         });
 
         
