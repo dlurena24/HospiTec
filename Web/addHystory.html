@@ -6,30 +6,61 @@
 	</head>
 	<body>
 		<div class="from-box">
-			<h1>Agregar historial a paciente</h1>
+			<form id="formulario-1">
+				<h1>Agregar historial a paciente</h1>
 
-			<form action="https://localhost:7187/Paciente/agregar_paciente" method="post">
 				<div class="input-box">
-					<input type="number" placeholder="Cédula del paciente" id="CedPaciente">
+					<input type="text" placeholder="Tratamiento prescrito" id="TratPrescrito" name="TratPrescrito">
+				</div>
+
+				<div class="input-box">
+					<input type="int" placeholder="Cédula del paciente" id="CedPaciente" name="CedPaciente">
 				</div>
 				<div class="input-box">
-					<input type="text" placeholder="Procedimiento realizado" id="ProcedRealizado">
+					<input type="text" placeholder="Procedimiento realizado" id="ProcedRealizado" name="ProcedRealizado">
 				</div>
 				<div class="input-box">
-					<input type="text" placeholder="Fecha del procedimiento" id="FechaProced">
-				</div>
-				<div class="input-box">
-					<input type="text" placeholder="Tratamiento prescrito" id="TratPrescrito">
+					<input type="text" placeholder="Fecha del procedimiento" id="FechaProced" name="FechaProced">
 				</div>
 				
-				
+
+				<button type="submit" class="advance-btn" id="Create_Btn"> AGREGAR</button>
+				<!--Modificar la ubicacion de devolucion del onclick-->
+				<button type="button" class="advance-btn" onclick="document.location='doctorHome.html'"> VOLVER</button>
+					
+					
 			</form>
-
-			<button type="button" class="advance-btn" onclick="document.location='addHystory.html'"> AGREGAR</button>
-			<!--Modificar la ubicacion de devolucion del onclick-->
-			<button type="button" class="advance-btn" onclick="document.location='doctorHome.html'"> VOLVER</button>
-			
+			<p id="respuesta-api"></p>
 		</div>
+		<script>
+			const formulario = document.getElementById("formulario-1");
+			const respuestaApi = document.getElementById("respuesta-api");
+	
+			formulario.addEventListener("submit", event => {
+				event.preventDefault();
+				const tratamiento_p = document.getElementById("TratPrescrito").value;
+				const cedula_p = document.getElementById("CedPaciente").value;
+				const procedimiento_r = document.getElementById("ProcedRealizado").value;
+				const fecha_p = document.getElementById("FechaProced").value;
+				
+		
+				fetch("https://localhost:7187/Hisorial_Clinico", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({ Tratamiento: tratamiento_p, Cedula_Pac: cedula_p , Procedimiento_Realizado: procedimiento_r, Fecha_Procedimiento: fecha_p})
+				})
+				.then(response => response.json())
+				.then(data => {
+					respuestaApi.textContent = data.mensaje;
+				});
+				return;
+			});
+	
+		
+		</script>
+
 	</body>
 
 </html>

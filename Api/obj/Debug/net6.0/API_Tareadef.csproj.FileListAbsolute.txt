@@ -134,3 +134,4 @@ C:\Users\Chalo\Documents\GitHub\HospiTec\Api\obj\Debug\net6.0\refint\API_Tareade
 C:\Users\Chalo\Documents\GitHub\HospiTec\Api\obj\Debug\net6.0\API_Tareadef.pdb
 C:\Users\Chalo\Documents\GitHub\HospiTec\Api\obj\Debug\net6.0\API_Tareadef.genruntimeconfig.cache
 C:\Users\Chalo\Documents\GitHub\HospiTec\Api\obj\Debug\net6.0\ref\API_Tareadef.dll
+C:\Users\Chalo\Documents\GitHub\HospiTec\Api\bin\Debug\net6.0\Recursos\HistorialJson.json
