@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hospital TECnológico</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		/*El cuerpo de la página*/
+		body {
+			background-color: #8fcab4;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+		/*El título*/
+		h1 {
+			color: #ffffff;
+			font-size: 30px;
+			margin: 25px 0;
+			text-align: center;
+		}
+		/*Botones*/
+		button {
+			background-color: #eceba0;
+			border: none;
+			color: #000000;
+			cursor: pointer;
+			font-size: 16px;
+			margin: 10px;
+			padding: 12px 24px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+
+		/*Color al poner el mouse encima de los botones*/
+		button:hover {
+			background-color: #ffffff;
+		}
+
+		input[type="int"], input[type="password"], input[type="text"] {
+			border: none;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			margin: 10px;
+			padding: 12px;
+			width: 100%;
+			transition: box-shadow 0.3s ease;
+		}
+
+		input[type="int"]:focus, input[type="password"], input[type="text"]:focus {
+			box-shadow: 0px 0px 5px #4CAF50;
+			outline: none;
+		}
+
+		#bienvenida, #login_Pac, #login_Func, #vista_Func, #vista_Pac {
+			animation: fadein 0.5s ease;
+			margin: 0 auto;
+			max-width: 600px;
+			padding: 20px;
+		}
+
+		@keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+		.hide {
+			display: none;
+		}
+
+		@media screen and (max-width: 600px) {
+			button {
+				font-size: 14px;
+				padding: 10px;
+			}
+
+			input[type="text"], input[type="password"] {
+				font-size: 14px;
+				padding: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<head>
+		<title>Hospital TECnológico</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<h1>¡BIENVENIDOS!</h1>
+
+		<div id="bienvenida">
+			<button onclick="showLogin('Funcionario')">Funcionario</button>
+			<button onclick="showLogin('Paciente')">Paciente</button>
+		</div>
+
+
+		<!--Display del login de Paciente-->
+		<div id="login_Pac" style="display:none;">
+			<label for="user_Pac">Usuario:</label>
+			<input type="int" id="user_Pac"><br><br>
+
+			<label for="pasw_Pac">Contraseña:</label>
+			<input type="password" id="pasw_Pac"><br><br>
+
+			<button onclick="showUser('Paciente')">Siguiente</button>
+
+			<button onclick="Back()">Regresar</button>
+		</div>
+
+		
+		<!--Display del login de Funcionarios-->
+		<div id="login_Func" style="display:none;">
+			<label for="user_Func">Usuario:</label>
+			<input type="int" id="user_Func"><br><br>
+
+			<label for="pasw_Func">Contraseña:</label>
+			<input type="password" id="pasw_Func"><br><br>
+
+			<button onclick="showUser('Funcionario')">Siguiente</button>
+
+			<button onclick="Back()">Regresar</button>
+		</div>
+
+		<!--Display de la vista de Funcionarios-->
+		<div id="vista_Func" style="display:none;">
+			<label for="text">Vista Funcionario</label>
+
+			
+		</div>
+
+		<!--Display de la vista de Pacientes-->
+		<div id="vista_Pac" style="display:none;">
+			<label for="text">Vista Paciente</label>
+
+			
+		</div>
+
+
+
+		
+		<script>
+			/*Funciones de la página web*/
+
+			/*Función de los botones de funcionario y paciente*/
+			function showLogin(buttonName) {
+				if (buttonName === 'Funcionario') {
+					document.getElementById('bienvenida').style.display = 'none';
+					document.getElementById('login_Func').style.display = 'block';
+				}
+
+				if (buttonName === 'Paciente') {
+					document.getElementById('bienvenida').style.display = 'none';
+					document.getElementById('login_Pac').style.display = 'block';
+				}
+			}
+	
+			/*Función para devolverse*/
+			function Back() {
+				document.getElementById('bienvenida').style.display = 'block';
+				document.getElementById('login_Func').style.display = 'none';
+				document.getElementById('login_Pac').style.display = 'none';
+			}
+
+			/*Función Vista Paciente o Funcionario*/
+			function showUser(buttonName){
+				if (buttonName === 'Funcionario'){
+					document.getElementById('login_Func').style.display = 'none';
+					document.getElementById('vista_Func').style.display = 'block';
+				}
+
+				if (buttonName === 'Paciente'){
+					document.getElementById('login_Pac').style.display = 'none';
+					document.getElementById('vista_Pac').style.display = 'block';
+				}
+				
+			}
+	</script>
+</body>
+</html>
