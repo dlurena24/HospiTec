@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hospital TECnológico</title>
@@ -16,28 +16,30 @@
             <h1>Agregar paciente</h1>
             
             <div class="input-box">
-                <input type="text" placeholder="Nombre del paciente" id="NomPaciente">
+                <input type="text" placeholder="Nombre del paciente" id="NomPaciente" name = "NomPaciente">
             </div>
 
             <div class="input-box">
-                <input type="text" placeholder="Primer apellido del paciente" id="PrimerApPac">
+                <input type="text" placeholder="Primer apellido del paciente" id="PrimerApPac" name = "PrimerApPac">
             </div>
+
+            <!--Modificar la ubicacion de devolucion del onclick-->
+            <button type="submit" class="advance-btn" id="Create_Btn"> AGREGAR </button>
+            <!--Modificar la ubicacion de devolucion del onclick-->
+            <button type="button" class="advance-btn" onclick="document.location='doctorHome.html'"> VOLVER</button>
         </form>
-        <!--Modificar la ubicacion de devolucion del onclick-->
-        <button type="button" class="advance-btn" onclick="PostMethod();" id="Create_Btn"> AGREGAR </button>
-        <!--Modificar la ubicacion de devolucion del onclick-->
-        <button type="button" class="advance-btn" onclick="document.location='doctorHome.html'"> VOLVER</button>
-        
+        <p id="respuesta-api"></p>
     </div>
 
     
     <script>
+        //const formulario = document.getElementById("formulario-1");
 
-        function PostMethod(){
+            /*
             const nombre = document.getElementById("NomPaciente").value;
             const pApellido = document.getElementById("PrimerApPac").value;
             
-            const url = "https://localhost:7187/PacienteController";
+            const url = "https://localhost:7187";
             const respuestaApi = document.getElementById("respuesta-api");
 
             console.log({ Nombre: nombre , Apellido1: pApellido});
@@ -53,9 +55,33 @@
             .then(data =>{
                 respuestaApi.textContent=data.mensaje;
             });
-            console.log(2)
+            console.log(2)*/
 
-        }
+            //const respuestaApi = document.getElementById("respuesta-api");
+            
+
+            const formulario = document.getElementById("formulario-1");
+            const respuestaApi = document.getElementById("respuesta-api");
+
+            formulario.addEventListener("submit", event => {
+            event.preventDefault();
+            const nombre = document.getElementById("NomPaciente").value;
+            const apellido = document.getElementById("PrimerApPac").value;
+            fetch("https://localhost:7187/Paciente", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ Nombre: nombre , Apellido: apellido})
+            })
+            .then(response => response.json())
+            .then(data => {
+                respuestaApi.textContent = data.mensaje;
+            });
+            return;
+        });
+
+        
 
         function myFunction(){
             var x= document.getElementById("password1");
@@ -99,7 +125,7 @@
 
         }
     </script>
-    <p id="respuesta-api"></p>
+   
 </body>
 
 </html>

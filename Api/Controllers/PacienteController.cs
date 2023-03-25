@@ -14,8 +14,7 @@ namespace API_Tareadef.Controllers
     public class PacienteController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Post([FromBody] Paciente nuevo_paciente)
-        {
+        public IActionResult Post([FromBody] Paciente nuevo_paciente){
             if(nuevo_paciente!=null && !string.IsNullOrEmpty(nuevo_paciente.Nombre))
             {
                 var response = new ExResponse
@@ -35,6 +34,7 @@ namespace API_Tareadef.Controllers
             }
             else
             {
+
                 return BadRequest();
             }
             //JSON_object jSON = new JSON_object("okay", nuevo_paciente);
