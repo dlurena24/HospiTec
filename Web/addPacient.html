@@ -11,7 +11,7 @@
 
 <body>
     <div class="from-box">
-        <form action="https://localhost:7187/Paciente/agregar_paciente" method="post">
+        <form id="formulario-1">
             
             <h1>Agregar paciente</h1>
             
@@ -37,7 +37,7 @@
             const nombre = document.getElementById("NomPaciente").value;
             const pApellido = document.getElementById("PrimerApPac").value;
             
-            const url = "https://localhost:7187/Paciente/agregar_paciente";
+            const url = "https://localhost:7187/PacienteController";
             const respuestaApi = document.getElementById("respuesta-api");
 
             console.log({ Nombre: nombre , Apellido1: pApellido});
@@ -86,7 +86,7 @@
                 if(pass_1.value.length < 8){
                     btnCreate.textContent = "Error, la contraseña debe ser mayor a 8 caracteres";
                 }else{
-                    //document.location='addHystory.html'
+                    document.location='addHystory.html'
                     
                 }
             }else{
