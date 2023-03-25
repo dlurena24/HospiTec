@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using System.IO;
 using System;
 using Newtonsoft.Json;
+using Microsoft.OpenApi.Models;
 
 namespace API_Tareadef.Controllers
 {
@@ -13,21 +14,46 @@ namespace API_Tareadef.Controllers
     public class PacienteController : ControllerBase
     {
         [HttpPost("agregar_paciente")]
-        public async Task<ActionResult<JSON_object>> agregar_Paciente(Paciente nuevo_paciente)
+        public IActionResult Post([FromBody] Paciente nuevo_paciente)
         {
             JSON_object jSON = new JSON_object("okay", nuevo_paciente);
-            string jsonString = JsonConvert.SerializeObject(nuevo_paciente);
+            string jsonString = JsonConvert.SerializeObject(nuevo_paciente);//JSON a API deserealizar, API a JSON serealizar
             Console.WriteLine(jsonString);
             string fileName = "PacienteJson.json";
             string path = @".\\Recursos\\PacienteJson.json";
-            using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString()); tw.Close(); }
-
+            using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString() + "\r\n"); tw.Close(); }
+            using (var testw = new StreamReader(path, true)) 
+            { 
+                //testw.ReadLine();
+                Console.WriteLine(testw.ReadLine());
+                Console.ReadLine();
+                testw.Close(); 
+            }
             return Ok(jSON);
         }
         [HttpDelete("eliminar_paciente")]
         public async Task<ActionResult<JSON_object>> eliminar_Paciente(Paciente eliminado_paciente)
         {
             JSON_object jSON = new JSON_object("okay", eliminado_paciente);
+
+            
+
+            int CedulaKey = eliminado_paciente.Cedula;
+
+            string fileName = "PacienteJson.json";
+            string path = @".\\Recursos\\PacienteJson.json";
+
+            //string jsonContent = File.ReadAllText(path);
+
+            using (var testw = new StreamReader(path, true))
+            {
+                //testw.ReadLine();
+                Console.WriteLine(testw.ReadLine());
+                Console.ReadLine();
+                testw.Close();
+            }
+
+
             return Ok(jSON);
         }
         [HttpPut("modificar_paciente")]
@@ -42,7 +68,6 @@ namespace API_Tareadef.Controllers
             JSON_object jSON = new JSON_object("okay", paciente_mostrado); 
             return Ok(jSON);
         }
-        
 
     }
 }
