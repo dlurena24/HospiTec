@@ -32,7 +32,7 @@ namespace API_Tareadef.Controllers
             return Ok(jSON);
         }
         [HttpDelete("eliminar_paciente")]
-        public async Task<ActionResult<JSON_object>> eliminar_Paciente(Paciente eliminado_paciente)
+        public IActionResult Delete([FromBody] Paciente eliminado_paciente)
         {
             JSON_object jSON = new JSON_object("okay", eliminado_paciente);
 
@@ -56,8 +56,9 @@ namespace API_Tareadef.Controllers
 
             return Ok(jSON);
         }
+
         [HttpPut("modificar_paciente")]
-        public async Task<ActionResult<JSON_object>> modificar_Paciente(Paciente modificado_paciente)
+        public IActionResult Get([FromBody] Paciente modificado_paciente)
         {
             JSON_object jSON = new JSON_object("okay", modificado_paciente);
             return Ok(jSON);
