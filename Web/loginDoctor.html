@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Hospital TECnológico</title>
+		<link rel="stylesheet" href="loginDoctor.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+	<body>
+		<div class="from-box">
+			<h1>¡Bienvenido!</h1>
+			<div class="input-box">
+				<i class="fa-solid fa-id-badge"></i>
+				<input type="text" placeholder="User ID">
+			</div>
+			<div class="input-box">
+				<i class="fa-solid fa-lock"></i>
+				<input type="password" placeholder="Password" id="myInput">
+				<span class="eye" onclick="hidePassword()">
+					<i id="hide1" class="fa-solid fa-eye"></i>
+					<i id="hide2" class="fa-solid fa-eye-slash"></i>
+				</span>
+			</div>
+			<button type="button" class="login-btn" onclick="document.location='doctorHome.html'"> LOGIN</button>
+			<button type="button" class="advance-btn" onclick="document.location='welcomePage.html'"> VOLVER</button>
+
+		</div>
+			<script>
+				function hidePassword(){
+					var x= document.getElementById("myInput");
+					var y= document.getElementById("hide1");
+					var z= document.getElementById("hide2");
+
+					if(x.type === 'password'){
+						x.type = "text";
+						y.style.display = "block";
+						z.style.display = "none";
+					}
+					else{
+						x.type = "password";
+						y.style.display = "none";
+						z.style.display = "block";
+					}
+				}
+			</script>
+	</body>
+</html>
