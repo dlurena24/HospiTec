@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bc9/Aeuya/j6q+1ZN9U2xlLjGTeBF3rE97qeq9rkOlF27P91KEkrzZ7E5AHdqhp77wK6pWU+8zt4BrEVgBbI4w==",
+  "dgSpecHash": "wCbiPHuFerWudpB9G3ikP9L+mA39XeIo77V60kSXFrdBqO+n8rm6xp2dvwmcFlfpomLSZNque8PESWtyDpOyww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kenda\\Desktop\\TEC\\Bases\\Tarea 1\\HospiTec\\API_Tareadef.csproj",
+  "projectFilePath": "C:\\Users\\kenda\\Desktop\\TEC\\Bases\\Tarea 1\\HospiTec\\Api\\API_Tareadef.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kenda\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\kenda\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
