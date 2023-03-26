@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
+		<!--Espacio donde se introducen los datos para acceder la cuenta-->
 		<div class="from-box">
 			<h1>¡Bienvenido!</h1>
 			<div class="input-box">
@@ -19,10 +20,13 @@
 					<i id="hide2" class="fa-solid fa-eye-slash"></i>
 				</span>
 			</div>
+			<!--Botones de la página-->
 			<button type="button" class="login-btn" onclick="document.location='patientHome.html'">LOGIN</button>
 			<button type="button" class="advance-btn" onclick="document.location='addAccount.html'">CREAR CUENTA</button>
 			<button type="button" class="advance-btn" onclick="document.location='welcomePage.html'"> VOLVER</button>
 		</div>
+
+		<!--Script para esconder los datos del password al introducirlo-->
 			<script>
 				function hidePassword(){
 					var x= document.getElementById("myInput");
