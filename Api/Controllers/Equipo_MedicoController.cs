@@ -9,7 +9,7 @@ namespace API_Tareadef.Controllers
     public class Equipo_MedicoController : ControllerBase
     {
         [HttpPost("agregar_eqmed")]
-        public async Task<ActionResult<JSON_object>> agregar_Eqmed(Equipo_Medico nuevo_eqmed)
+        public async Task<ActionResult<JSON_object>> agregar_Eqmed(Equipo_Medico nuevo_eqmed) //Función encargada de agregar el equipo médico
         {
             JSON_object jSON = new JSON_object("okay", nuevo_eqmed);
             //string jsonString = JsonConvert.SerializeObject(nuevo_paciente);

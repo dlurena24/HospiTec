@@ -9,7 +9,7 @@ namespace API_Tareadef.Controllers
     public class CamaController : ControllerBase
     {
         [HttpPost("agregar_cama")]
-        public async Task<ActionResult<JSON_object>> agregar_Cama(Cama nueva_cama)
+        public async Task<ActionResult<JSON_object>> agregar_Cama(Cama nueva_cama) //Función encargada de agregar camas
         {
             JSON_object jSON = new JSON_object("okay", nueva_cama);
             //string jsonString = JsonConvert.SerializeObject(nueva_cama);

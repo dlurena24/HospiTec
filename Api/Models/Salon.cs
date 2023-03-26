@@ -1,6 +1,6 @@
 ﻿namespace API_Tareadef.Models
 {
-    public class Salon
+    public class Salon//Atributos de la clase Salón.
     {
         public int Salon_Numero { get; set; } = 0;
         public string Nombre_Salon { get; set; } = string.Empty;

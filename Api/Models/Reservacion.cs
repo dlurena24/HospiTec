@@ -1,6 +1,6 @@
 ﻿namespace API_Tareadef.Models
 {
-    public class Reservacion
+    public class Reservacion//Atributos de la clase Reservación
     {
         public int ID_Reservacion { get; set; } = 0;
         public string Fecha_Ingreso { get; set; } = string.Empty;

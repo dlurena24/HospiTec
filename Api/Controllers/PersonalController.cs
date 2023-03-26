@@ -8,7 +8,7 @@ namespace API_Tareadef.Controllers
     public class PersonalController : ControllerBase
     {
         [HttpPost("agregar_personal")]
-        public async Task<ActionResult<JSON_object>> agregar_Personal(Personal nuevo_personal)
+        public async Task<ActionResult<JSON_object>> agregar_Personal(Personal nuevo_personal) //Función encargada de agregar personal
         {
             JSON_object jSON = new JSON_object("okay", nuevo_personal);
             //string jsonString = JsonConvert.SerializeObject(nuevo_paciente);

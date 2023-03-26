@@ -1,6 +1,6 @@
 ﻿namespace API_Tareadef.Models
 {
-    public class Paciente
+    public class Paciente //Atributos de la clase Paciente
     {
         public string Nombre { get; set; } = string.Empty;
         public string Apellido1 { get; set; } = string.Empty;

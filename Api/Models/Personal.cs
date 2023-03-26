@@ -1,6 +1,6 @@
 ﻿namespace API_Tareadef.Models
 {
-    public class Personal
+    public class Personal//Atributos de la clase Personal
     {
         public string Nombre { get; set; } = string.Empty;
         public string Apellido1 { get; set; } = string.Empty;

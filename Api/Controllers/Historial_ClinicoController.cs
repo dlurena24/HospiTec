@@ -14,7 +14,7 @@ namespace API_Tareadef.Controllers
     public class Historial_ClinicoController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Post([FromBody] Historial_Clinico nuevo_historial)
+        public IActionResult Post([FromBody] Historial_Clinico nuevo_historial) //Función encargada de Ingresar el historial clínico a la base de datos
         {
             if (nuevo_historial != null && !string.IsNullOrEmpty(nuevo_historial.Tratamiento))
             {

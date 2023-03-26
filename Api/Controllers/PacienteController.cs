@@ -14,17 +14,17 @@ namespace API_Tareadef.Controllers
     public class PacienteController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Post([FromBody] Paciente nuevo_paciente)
+        public IActionResult Post([FromBody] Paciente nuevo_paciente) //Función encargada de Ingresar la información del paciente a la base de datos
         {
-            if (nuevo_paciente != null && !string.IsNullOrEmpty(nuevo_paciente.Nombre))
+            if (nuevo_paciente != null && !string.IsNullOrEmpty(nuevo_paciente.Nombre))//Evalúa si el texto no es válido
             {
                 var response = new ExResponse
                 {
-                    Mensaje = $"Funca, {nuevo_paciente.Nombre}"
+                    Mensaje = $"Funca, {nuevo_paciente.Nombre}"//Mensaje de confirmación de funcionamiento
                 };
                 string jsonString = JsonConvert.SerializeObject(nuevo_paciente);//JSON a API deserealizar, API a JSON serealizar
                 string path = @".\\Recursos\\PacienteJson.json";
-                using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString() + "\r\n"); tw.Close(); }
+                using (var tw = new StreamWriter(path, true)) { tw.WriteLine(jsonString.ToString() + "\r\n"); tw.Close(); }//Función encargada de subir la información de paciente a la base
                 using (var testw = new StreamReader(path, true))
                 {
                     Console.WriteLine(testw.ReadLine());
@@ -93,7 +93,7 @@ namespace API_Tareadef.Controllers
         [HttpGet("mostrar_paciente")]
 
         //IActionResult Post([FromBody] Paciente nuevo_paciente)
-        public IActionResult Get(Paciente paciente_mostrar)
+        public IActionResult Get(Paciente paciente_mostrar) //Función mostrar lo escrito en JSON.
         {
 
                 string fileName = @".\\Recursos\\PacienteJson.json";

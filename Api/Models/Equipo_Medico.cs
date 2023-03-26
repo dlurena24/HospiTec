@@ -1,6 +1,6 @@
 ﻿namespace API_Tareadef.Models
 {
-    public class Equipo_Medico
+    public class Equipo_Medico//Atributos de la clase Equipo Médico
     {
         public int ID_Equipo_Medico { get; set; } = 0;
         public string Nombre_Equipo_Medico { get; set; } = string.Empty;

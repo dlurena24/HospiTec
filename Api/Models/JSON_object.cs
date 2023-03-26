@@ -1,6 +1,6 @@
 ﻿namespace API_Tareadef.Models
 {
-    public class JSON_object
+    public class JSON_object // Atributos de la clase JSON_object
     {
         public string status { get; set; } = string.Empty;
         public Object result { get; set; }
