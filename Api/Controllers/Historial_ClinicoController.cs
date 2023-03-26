@@ -24,12 +24,12 @@ namespace API_Tareadef.Controllers
                 };
                 string jsonString1 = JsonConvert.SerializeObject(nuevo_historial);//JSON a API deserealizar, API a JSON serealizar
                 string path1 = @".\\Recursos\\HistorialJson.json";
-                using (var tw = new StreamWriter(path1, true)) { tw.WriteLine(jsonString1.ToString() + "\r\n"); tw.Close(); }
-                using (var testw = new StreamReader(path1, true))
+                using (var tw1 = new StreamWriter(path1, true)) { tw1.WriteLine(jsonString1.ToString() + "\r\n"); tw1.Close(); }
+                using (var testw1 = new StreamReader(path1, true))
                 {
-                    Console.WriteLine(testw.ReadLine());
+                    Console.WriteLine(testw1.ReadLine());
                     Console.ReadLine();
-                    testw.Close();
+                    testw1.Close();
                 }
                 return Ok(response);
             }
