@@ -16,7 +16,7 @@ namespace API_Tareadef.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Paciente nuevo_paciente)
         {
-            if(nuevo_paciente!=null && !string.IsNullOrEmpty(nuevo_paciente.Nombre))
+            if (nuevo_paciente != null && !string.IsNullOrEmpty(nuevo_paciente.Nombre))
             {
                 var response = new ExResponse
                 {
@@ -88,9 +88,32 @@ namespace API_Tareadef.Controllers
             return Ok(jSON);
         }*/
 
+
+
+        [HttpGet("mostrar_paciente")]
+
+        //IActionResult Post([FromBody] Paciente nuevo_paciente)
+        public IActionResult Get(Paciente paciente_mostrar)
+        {
+
+                string fileName = @".\\Recursos\\PacienteJson.json";
+                //string jsonString = File.ReadAllText(fileName);
+
+
+                string jsonString = System.IO.File.ReadAllText(fileName);
+
+                System.Text.Json.JsonSerializerOptions options = new System.Text.Json.JsonSerializerOptions();
+                Paciente? paciente = System.Text.Json.JsonSerializer.Deserialize<Paciente>(jsonString, options)!;
+
+                Console.WriteLine($"Nombre:{paciente?.Nombre}");
+
+                return Ok();
+            }
+
+        }
+        public class ExResponse
+        {
+            public string Mensaje { get; set; }
+        }
     }
-    public class ExResponse
-    {
-        public string Mensaje { get; set; }
-    }
-}
+
