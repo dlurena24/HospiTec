@@ -10,11 +10,13 @@
 </head>
 
 <body>
+    <!--Espacio donde se crea el formulario para crear la cuenta-->
     <div class="from-box">
         <form id="formulario-1">
             
             <h1>Crear cuenta</h1>
             
+            <!--Recolección de datos del usuario-->
             <div class="input-box">
                 <input type="text" placeholder="Nombre del paciente" id="NomPaciente" name = "NomPaciente">
             </div>
@@ -56,15 +58,15 @@
             </div>
 
 
-            <!--Modificar la ubicacion de devolucion del onclick-->
+            <!--Botones de la página-->
             <button type="submit" class="advance-btn" id="Create_Btn"> AGREGAR </button>
-            <!--Modificar la ubicacion de devolucion del onclick-->
             <button type="button" class="advance-btn" onclick="document.location='loginPatient.html'"> VOLVER</button>
             <button type="button" class="advance-btn" onclick="document.location='patientHome.html'"> CONTINUAR</button>
         </form>
         <p id="respuesta-api"></p>
     </div>
 
+    <!--Escaneo de datos para la elaboración del JSON-->
     <script>
         const formulario = document.getElementById("formulario-1");
         const respuestaApi = document.getElementById("respuesta-api");
@@ -81,6 +83,8 @@
         const direccion = document.getElementById("Direccion").value;
         const patologia = document.getElementById("Patologia").value;
         const tratamiento = document.getElementById("Tratamiento").value;
+        
+        //Escritura en el documento .JSON
         fetch("https://localhost:7187/Paciente", {
             method: "POST",
             headers: {
